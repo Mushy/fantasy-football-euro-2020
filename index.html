@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UEFA Euro 2020 Fantasy Team Assigner</title>
+</head>
+<body>
+<div class="js-hook"></div>
+<script>
+function makeTeam(player) {
+	player.gk1 = getGoalie();
+	player.gk2 = getGoalie();
+	while (player.gk2 == player.gk1) {
+		player.gk2 = getGoalie();
+	}
+
+
+	let defenders = [];
+	let defender = getDefender();
+//	defenders.forEach(defender) {
+
+//	}
+}
+
+
+
+function randomNumber(arrLength) {
+	return Math.floor(Math.random() * arrLength);
+}
+
+
+
+function getGoalie() {
+	const gkCount = keepers.length;
+	let randomNo = randomNumber(gkCount);
+
+	return keepers[randomNo];
+}
+
+
+
+function getDefender() {
+	const dfCount = defenders.length;
+	let randomNo = randomNumber(dfCount);
+
+	return defenders[randomNo];
+}
+
+
+
+function Team(player) {
+	// Trying to follow the rough rules of fantasy football...
+	// 2x GK - main + sub
+	// 4x Def
+	// 3x Mid
+	// 2x Forward
+	// 3x Sub (any but GK)
+	// We won't be doing the whole playing not playing bit though, all will simply count.
+
+	this.owner = player;
+
+	this.gk1 = '';
+	this.gk2 = '';
+
+	this.def1 = '';
+	this.def2 = '';
+	this.def3 = '';
+	this.def4 = '';
+
+	this.mid1 = '';
+	this.mid2 = '';
+	this.mid3 = '';
+
+	this.fwd1 = '';
+	this.fwd2 = '';
+
+	this.sub1 = '';
+	this.sub2 = '';
+	this.sub3 = '';
+}
+
+
+
+const keepers = ['GK1', 'GK2', 'GK3', 'GK4', 'GK5', 'GK6', 'GK7', 'GK8', 'GK9', 'GK10', 'GK11', 'GK12', 'GK13', 'GK14', 'GK15', 'GK16', 'GK17', 'GK18', 'GK19', 'GK20'];
+const defenders = ['DF1', 'DF2', 'DF3', 'DF4', 'DF5', 'DF6', 'DF7', 'DF8', 'DF9', 'DF10', 'DF11', 'DF12', 'DF13', 'DF14', 'DF15', 'DF16', 'DF17', 'DF18', 'DF19', 'DF20', 'DF21', 'DF22', 'DF23', 'DF24', 'DF25', 'DF26', 'DF27', 'DF28', 'DF29'];
+const midfielders = ['MD1', 'MD2', 'MD3', 'MD4', 'MD5', 'MD6', 'MD7', 'MD8', 'MD9', 'MD10', 'MD11', 'MD12', 'MD13', 'MD14', 'MD15', 'MD16', 'MD17', 'MD18', 'MD19', 'MD20', 'MD21', 'MD22', 'MD23', 'MD24', 'MD25', 'MD26', 'MD27', 'MD28', 'MD29', 'MD30', 'MD31', 'MD32', 'MD33', 'MD34', 'MD35', 'MD36', 'MD37', 'MD38'];
+const forwards = ['FW1', 'FW2', 'FW3', 'FW4', 'FW5', 'FW6', 'FW7', 'FW8', 'FW9', 'FW10', 'FW11', 'FW12', 'FW13', 'FW14', 'FW15', 'FW16', 'FW17', 'FW18', 'FW19', 'FW20', 'FW21', 'FW22', 'FW23', 'FW24', 'FW25', 'FW26', 'FW27', 'FW28', 'FW29', 'FW30', 'FW31', 'FW32', 'FW33', 'FW34'];
+
+const players = ['P1', 'P2', 'P3', 'P4,', 'P5', 'P6'];
+
+let playerTeams = [];
+
+players.forEach((player) => {
+	let thePlayer = new Team(player);
+	makeTeam(thePlayer);
+	console.log(thePlayer);
+});
+</script>
+</body>
+</html>
